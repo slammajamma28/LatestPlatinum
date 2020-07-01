@@ -6,18 +6,23 @@ h1 {
 }
 
 h1.leftp {
-    justify-content: right;
-    align-items: flex-start;
+    justify-content: flex-end;
+    align-items: center;
     color: lightskyblue;
+    padding-right: 50px;
 }
 
 h1.rightp {
-    justify-content: left;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 50px;
 }
 
+h1.toppad {
+    padding-top: 100px;
+}
 .game {
-    max-height: 190px;
+    max-height: 166px;
     width: auto;
 }
 
