@@ -1,45 +1,95 @@
-body {
-    background-color: black;
-}
-
-a {
-    color:darkorange;
-    text-decoration-line: none;
-}
-
 h1 {
     display: flex;
     justify-content: center;
-    align-items: center;
+    color: darkorange;
+    font-size: 40px;
+}
+
+h1.leftp {
+    justify-content: right;
+    align-items: flex-start;
     color: lightskyblue;
-    font-size: 50px;
 }
 
-h2 {
-   text-align: center;
-   color: white;
+h1.rightp {
+    justify-content: left;
+    align-items: flex-start;
 }
 
-
-.center {
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
+.game {
+    max-height: 190px;
+    width: auto;
 }
 
-#psnicon {
-    max-width: 50px;
-    height: auto;
+/* curtain styles from https://css-tricks.com/creating-css-sliding-door-effect/ */
+
+.curtain {
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.curtain__wrapper {
+    width: 100%;
+    height: 100%;
+}
+.curtain__wrapper input[type=checkbox] {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity: 0;
+    top: 0;
+    left: 0;
 }
 
-#earned_info {
-    display: block;
+.curtain__wrapper input[type=checkbox]:not(:checked) {
+    width: 10px;
+    height: 10px;
+    z-index: 100;
+    opacity: 100;
+    top: 0;
+    left: 0;
 }
 
-h3, h4, p {
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.curtain__wrapper input[type=checkbox]:checked ~ div.curtain__panel--left {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
 }
-
+.curtain__wrapper input[type=checkbox]:checked ~ div.curtain__panel--right {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+}
+.curtain__panel {
+    background: black;
+    color: #fff;
+    float: left;
+    position: relative;
+    width: 50%;
+    height: 100vh;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+    z-index: 2;
+}
+.curtain__panel--left {
+    -webkit-box-pack: end;
+            justify-content: flex-end;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+}
+.curtain__panel--right {
+    -webkit-box-pack: start;
+            justify-content: flex-start;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+}
+.curtain__content {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    width: 100%;
+}
