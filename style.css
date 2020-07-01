@@ -1,0 +1,45 @@
+body {
+    background-color: black;
+}
+
+a {
+    color:darkorange;
+    text-decoration-line: none;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: lightskyblue;
+    font-size: 50px;
+}
+
+h2 {
+   text-align: center;
+   color: white;
+}
+
+
+.center {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+#psnicon {
+    max-width: 50px;
+    height: auto;
+}
+
+#earned_info {
+    display: block;
+}
+
+h3, h4, p {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
