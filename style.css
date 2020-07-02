@@ -19,7 +19,7 @@ h1.rightp {
 }
 
 h1.toppad {
-    padding-top: 100px;
+    padding-top: 200px;
 }
 .game {
     max-height: 166px;
@@ -27,12 +27,16 @@ h1.toppad {
 }
 
 /* curtain styles from https://css-tricks.com/creating-css-sliding-door-effect/ */
-
 .curtain {
     margin: 0 auto;
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 .curtain__wrapper {
     width: 100%;
@@ -93,8 +97,73 @@ h1.toppad {
     background: #333;
     color: #fff;
     padding: 1rem 0;
-    position: absolute;
+    position: fixed;
     text-align: center;
     z-index: 1;
     width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.curtain__content::-webkit-scrollbar {
+    display: none;
+}
+
+.flex_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex_container > div {
+    width: 300px;
+    height: 300px;
+    color: white;
+    padding: 40px;
+    position: relative;
+}
+
+/* CSS image overlay from w3schools
+https://www.w3schools.com/howto/howto_css_image_overlay_slide.asp*/
+
+.trophy_overlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: black;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+}
+
+.trophy_container:hover .trophy_overlay {
+    bottom: 0;
+    height: 100%;
+}
+
+.trophy_text {
+    color: darkorange;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.trophy_game_name {
+    color: white;
+    font-size: 20px;
 }
